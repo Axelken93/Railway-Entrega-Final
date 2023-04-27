@@ -1,4 +1,10 @@
 import service from '../services/chat.js'
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const messagePath = path.join(__dirname, '../../public/message.html');
 
 async function getMessagesByMail(req, res) {
     let {mail} = await req.params
@@ -7,7 +13,7 @@ async function getMessagesByMail(req, res) {
 }
 
 async function getToMessages(req, res) {
-    res.sendFile('C:/Users/flopi/Desktop/Axel/Programacion/Curso-CoderHouse/Backend/TP/Desafios/Entrega-Final/public/message.html')
+    res.sendFile(messagePath)
 }
 
 async function postMessage(req, res) {
